@@ -22,8 +22,10 @@ public class GameStatusPanel extends JPanel{
 	private JButton gameRestartButton; // game restart button (when game is in progress)
 	private String statusValue; // status label value
 	private JPanel buttons;
+	private MainFrame f;
 	
-	public GameStatusPanel(){
+	public GameStatusPanel(MainFrame f){
+		this.f = f;
 		initLabel();
 		initPanel();
 		initButtons();
@@ -47,8 +49,7 @@ public class GameStatusPanel extends JPanel{
 		newGameButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e){
-		                //Execute when button is pressed
-		                System.out.println("New Game");
+		              f.setupInitMode();
 		        }
 	        }
 		);

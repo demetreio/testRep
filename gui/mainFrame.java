@@ -10,8 +10,8 @@ import javax.swing.JPanel;
  * */
 public class MainFrame extends JFrame{
 
-	private final int WIDTH = 820; // width of the main window
-	private final int HEIGHT = 610; // height of the main window
+	private final int WIDTH = 900; // width of the main window
+	private final int HEIGHT = 700; // height of the main window
 	private final String TITLE = "Tic Tac Toe"; // title of the application
 	private JPanel mainPanel; // main panel on which all components are drawn
 	private GameInitPanel gInitPanel; // jPanel for game initialization
@@ -60,7 +60,7 @@ public class MainFrame extends JFrame{
 	
 	private void setupPanels(){
 		gInitPanel = new GameInitPanel(this);
-		gStatPanel = new GameStatusPanel();
+		gStatPanel = new GameStatusPanel(this);
 	}
 	
 	public void cleanMainPanel(){
