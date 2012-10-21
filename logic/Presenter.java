@@ -4,6 +4,6 @@ package logic;
 
 public interface Presenter {
 
-	void show(ReadOnlyBoard board, GameStatus gameStatus);
+	void show(GameStatus gameStatus);
 
 }

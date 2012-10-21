@@ -10,8 +10,8 @@ import javax.swing.JPanel;
  * */
 public class MainFrame extends JFrame{
 
-	private final int WIDTH = 800; // width of the main window
-	private final int HEIGHT = 600; // height of the main window
+	private final int WIDTH = 820; // width of the main window
+	private final int HEIGHT = 610; // height of the main window
 	private final String TITLE = "Tic Tac Toe"; // title of the application
 	private JPanel mainPanel; // main panel on which all components are drawn
 	private GameInitPanel gInitPanel; // jPanel for game initialization
@@ -32,6 +32,7 @@ public class MainFrame extends JFrame{
 		setSize(WIDTH,HEIGHT);
 		setTitle(TITLE);
 		setLayout(new BorderLayout());
+		setResizable(false);
 	}
 	
 	private void setupMainPanel(){
@@ -40,27 +41,29 @@ public class MainFrame extends JFrame{
 		add(mainPanel, BorderLayout.CENTER);
 	}
 	
-	private void setupInitMode(){
+	public void setupInitMode(){
+		setupPanels();
 		setInitMode();
-		cleanMainPane();
+		cleanMainPanel();
 		mainPanel.add(gInitPanel, BorderLayout.CENTER);
 		mainPanel.add(gStatPanel, BorderLayout.SOUTH);
 	}
 	
-	private void setupGameplayPanel(){
+	public void setupGameplayPanel(int columns, int rows, String chosenTic, String player){
+		setupPanels();
 		setPlayMode();
-		cleanMainPane();
+		cleanMainPanel();
+		gPlayPanel = new GameplayPanel(columns, rows, chosenTic, player);
 		mainPanel.add(gPlayPanel, BorderLayout.CENTER);
 		mainPanel.add(gStatPanel, BorderLayout.SOUTH);
 	}
 	
 	private void setupPanels(){
-		gInitPanel = new GameInitPanel();
-		gPlayPanel = new GameplayPanel();
+		gInitPanel = new GameInitPanel(this);
 		gStatPanel = new GameStatusPanel();
 	}
 	
-	private void cleanMainPane(){
+	public void cleanMainPanel(){
 		mainPanel.removeAll();
 	}
 	

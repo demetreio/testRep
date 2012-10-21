@@ -39,7 +39,7 @@ public class Game {
 
 		do {
 			gameStatus = referee.getGameStatus(readOnlyBoard);
-			presenter.show(readOnlyBoard, gameStatus);
+			presenter.show(gameStatus);
 			if (gameStatus != GameStatus.INPROGRESS) {
 				break;
 			}

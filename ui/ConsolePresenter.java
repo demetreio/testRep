@@ -80,4 +80,10 @@ public class ConsolePresenter implements Presenter {
 			break;
 		}
 	}
+
+	@Override
+	public void show(GameStatus gameStatus) {
+		// TODO Auto-generated method stub
+		
+	}
 }
