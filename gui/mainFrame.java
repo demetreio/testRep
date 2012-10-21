@@ -54,6 +54,7 @@ public class MainFrame extends JFrame{
 		setPlayMode();
 		cleanMainPanel();
 		gPlayPanel = new GameplayPanel(columns, rows, chosenTic, player);
+		gStatPanel = new GameStatusPanel(this, columns, rows, chosenTic, player);
 		mainPanel.add(gPlayPanel, BorderLayout.CENTER);
 		mainPanel.add(gStatPanel, BorderLayout.SOUTH);
 	}

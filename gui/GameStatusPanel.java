@@ -23,9 +23,24 @@ public class GameStatusPanel extends JPanel{
 	private String statusValue; // status label value
 	private JPanel buttons;
 	private MainFrame f;
+	private int columns;
+	private int rows;
+	private String chosenTic;
+	private String player;
 	
 	public GameStatusPanel(MainFrame f){
 		this.f = f;
+		initLabel();
+		initPanel();
+		initButtons();
+	}
+	
+	public GameStatusPanel(MainFrame f, int columns, int rows, String chosenTic, String player){
+		this.f = f;
+		this.columns = columns;
+		this.rows = rows;
+		this.chosenTic = chosenTic;
+		this.player = player;
 		initLabel();
 		initPanel();
 		initButtons();
@@ -57,8 +72,7 @@ public class GameStatusPanel extends JPanel{
 		gameRestartButton.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				System.out.println("Restart");
+				f.setupGameplayPanel(columns, rows, chosenTic, player);
 			}
 			
 		});
